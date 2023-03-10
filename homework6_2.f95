@@ -10,7 +10,7 @@ program homework6_2
 
     ! Declare our Variables
     real :: xAve, yAve, XAve2, Sx2y, Sxx2, Sx2x2, Sxx, Sxy = 0.0
-    real :: x, y, m, b
+    real :: x, y, a, b, c
     integer :: n = 200
     integer :: i
 
@@ -29,12 +29,13 @@ program homework6_2
         xAve = xAve + (x - xAve) / float(i)
         xAve2 = xAve2 + (x**2 - xAve2) / float(i)
         yAve = yAve + (y - yAve) / float(i)
-        m = Sxy / Sxx
-        b = yAve - m* xAve
+        a = ((Sx2y * Sxx) - (Sxy*Sxx2)) / ((Sxx*Sx2x2) - (Sxx2**2))
+        b = ((Sxy*Sx2x2) - (Sx2y*Sxx2)) / ((Sxx*Sx2x2) - (Sxx2**2))
+        c = yAve - b*xAve - a*xAve2
     enddo
     
     ! Write our output
-    write(13,*) m, b
+    write(13,*) a, b, cff
 
     ! Close our Folders
     close(42)
