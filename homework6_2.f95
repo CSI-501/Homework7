@@ -23,12 +23,9 @@ program homework6_2
         read(42,*) x, y
         Sxx = Sxx + ((float(i) - 1)/float(i)) * (x - xAve)**2
         Sxy = Sxy + ((float(i) - 1)/float(i)) * (x - xAve) * (y - yAve)
-        ! Sxx2 = ((x - xAve)*(x**2 - XAve2)) / n
-        Sxx2 = x**3 - (n*xAve*xAve2)
-        ! Sx2x2 = (x**2 - XAve2)**2 / n
-        Sx2x2 = x**4 - ((n*xAve2)*xAve2)
-        ! Sx2y = ((y - yAve)*(x**2 - XAve2)) / n
-        Sx2y = (x**2 * y) - (n*xAve2*yAve)
+        Sxx2 = Sxx2 + ((float(i) - 1)/float(i)) * (x - xAve) * (x**2 - xAve2)
+        Sx2x2 = Sx2x2 + ((float(i) -1)/float(i)) * (x**2 - xAve2)**2
+        Sx2y = Sx2y + ((float(i) - 1)/float(i)) * (y - yAve) * (x**2 - XAve2)
         xAve = xAve + (x - xAve) / float(i)
         xAve2 = xAve2 + (x**2 - xAve2) / float(i)
         yAve = yAve + (y - yAve) / float(i)
@@ -39,6 +36,11 @@ program homework6_2
     
     ! Write our output
     write(13,*) a, b, c
+
+    ! Print the output
+    print*, 'Exponent x^2 coefficient a = ', a
+    print*, 'x coefficient b = ', b
+    print*, 'Constant c = ', c
 
     ! Close our Folders
     close(42)
