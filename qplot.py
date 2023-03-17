@@ -25,7 +25,7 @@ for line in Lines:
 plt.figure(figsize=(15,10))
 plt.scatter(x, y)
 plt.plot(i, (a*(i**2) + b*i + c), color='red')
-plt.title('Data with Exponential Least Squares Fitted')
+plt.title('Data with Quadratic Least Squares Fitted')
 plt.xlabel('X')
 plt.ylabel('Y')
 plt.savefig('display')
